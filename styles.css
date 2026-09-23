@@ -106,6 +106,13 @@ svg {
   color: var(--ink);
 }
 
+.header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
