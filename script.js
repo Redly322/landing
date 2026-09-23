@@ -1,6 +1,6 @@
 (() => {
   const revealTargets = document.querySelectorAll(
-    ".section-head, .method-list li, .client-list, .client-note, .result-grid article, .truth-panel, .faq details, .contact-panel"
+    ".section-head, .approach-grid article, .method-list li, .client-card, .metrics, .result-grid article, .faq details, .contact-panel"
   );
 
   revealTargets.forEach((el) => el.classList.add("reveal"));

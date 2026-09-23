@@ -208,6 +208,18 @@ svg {
   max-width: 36rem;
 }
 
+.hero-kicker {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6f8600;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.02s forwards;
+}
+
 .hero-title {
   margin: 0 0 1rem;
   font-family: var(--font-display);
@@ -587,50 +599,95 @@ svg {
 .result-grid p,
 .faq p,
 .truth-panel p,
-.client-note {
+.approach-grid p,
+.client-desc,
+.metric-label {
   color: var(--muted);
 }
 
-.client-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem 2.5rem;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 1.75rem 0;
-}
-
-.client-list li {
-  font-family: var(--font-display);
-  font-size: clamp(1.35rem, 3vw, 1.9rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-}
-
-.client-note {
-  margin: 1.1rem 0 0;
-  font-size: 0.95rem;
-}
-
+.approach-grid,
 .result-grid {
   display: grid;
   gap: 2rem 2.5rem;
 }
 
+.approach-grid article,
 .result-grid article {
   padding: 0;
   border: 0;
   background: transparent;
 }
 
+.approach-grid article h3,
 .result-grid article h3 {
   padding-bottom: 0.65rem;
   border-bottom: 2px solid var(--acid);
   display: inline-block;
+}
+
+.client-logos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.client-card {
+  display: grid;
+  gap: 0.65rem;
+  align-content: start;
+  min-height: 100%;
+  padding: 1.25rem 1.1rem 1.35rem;
+  border-top: 1px solid var(--line);
+  transition: border-color 0.25s ease;
+}
+
+.client-card:hover {
+  border-top-color: var(--ink);
+}
+
+.client-card img {
+  width: auto;
+  max-width: 100%;
+  height: 48px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.client-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.client-desc {
+  font-size: 0.92rem;
+}
+
+.metrics {
+  display: grid;
+  gap: 1.5rem;
+  margin: 0 0 2.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.metric-value {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.metric-label {
+  margin: 0;
+  font-size: 0.95rem;
+  max-width: 14rem;
 }
 
 .truth {
@@ -874,6 +931,13 @@ svg {
     gap: 1.5rem;
   }
 
+  .approach-grid,
+  .result-grid,
+  .metrics,
+  .client-logos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .result-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -898,6 +962,7 @@ svg {
     scroll-behavior: auto;
   }
 
+  .hero-kicker,
   .hero-title,
   .hero-lead,
   .hero-cta,
