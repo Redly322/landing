@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>1С с ИИ — разработка без расширения штата</title>
-  <meta name="description" content="Команда 1С с ИИ, собственными MCP-серверами и стандартами разработки. Сроки сильной команды — без увеличения численности." />
+  <meta name="description" content="Команда 1С с ИИ, собственными MCP-серверами и оркестрацией агентов. Сроки сильной команды — без увеличения численности." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet" />
@@ -34,7 +34,7 @@
       <div class="hero-copy">
         <h1 class="hero-title" id="hero-title">1С с ИИ: сроки команды без расширения штата</h1>
         <p class="hero-lead">
-          Типовые доработки, на которые у классической команды уходят недели, мы выполняем за часы — за счёт ИИ, собственных MCP-серверов и строгих стандартов разработки 1С.
+          Типовые доработки, на которые у классической команды уходят недели, мы выполняем за часы — за счёт оркестрации ИИ-агентов, MCP-серверов, знающих вашу конфигурацию, и строгих стандартов разработки 1С.
         </p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#contact">Обсудить задачу</a>
@@ -43,39 +43,100 @@
       </div>
 
       <div class="hero-visual" aria-hidden="true">
-        <div class="ide">
-          <div class="ide-chrome">
+        <div class="orch" id="orch">
+          <div class="orch-chrome">
             <span class="ide-dot"></span>
             <span class="ide-dot"></span>
             <span class="ide-dot"></span>
-            <span class="ide-path">Конфигурация / ОбщийМодуль.РаботаСЗаказами</span>
+            <span class="orch-title">Оркестрация · задача в работе</span>
+            <span class="orch-step" id="orch-step">1 / 5</span>
           </div>
-          <div class="ide-body">
-            <aside class="ide-tree">
-              <p class="ide-tree-label">Метаданные</p>
-              <ul>
-                <li class="dim">Справочники</li>
-                <li class="active">Документы</li>
-                <li class="child active">ЗаказКлиента</li>
-                <li class="child">Реализация</li>
-                <li class="dim">РегистрыСведений</li>
-                <li class="dim">ОбщиеМодули</li>
-                <li class="child pulse">РаботаСЗаказами</li>
-              </ul>
-            </aside>
-            <div class="ide-editor">
-              <div class="ide-status">
-                <span>агент · код</span>
-                <span class="ide-status-ok">стандарты 1С ✓</span>
+
+          <div class="orch-stage" data-stage="0">
+            <p class="orch-caption">Постановка задачи управляющему агенту</p>
+            <div class="orch-board">
+              <div class="orch-node orchestrator is-active">
+                <span class="orch-role">Оркестратор</span>
+                <strong>Управляющая модель</strong>
+                <p id="task-text">Новая задача…</p>
               </div>
-              <pre class="ide-code"><code id="typed-code"></code><span class="caret"></span></pre>
+              <div class="orch-side">
+                <div class="orch-chip">MCP · метаданные конфигурации</div>
+                <div class="orch-chip">.cf / .cfe · демо-база</div>
+                <div class="orch-chip dim">агенты ожидают назначения</div>
+              </div>
             </div>
           </div>
-          <div class="ide-agents">
-            <span class="agent on">архитектура</span>
-            <span class="agent on">код</span>
-            <span class="agent on">ревью</span>
-            <span class="agent">тесты</span>
+
+          <div class="orch-stage" data-stage="1" hidden>
+            <p class="orch-caption">Распределение подзадач между агентами</p>
+            <div class="orch-flow">
+              <div class="orch-node orchestrator is-active compact">
+                <span class="orch-role">Оркестратор</span>
+                <strong>Назначает работы</strong>
+              </div>
+              <div class="orch-links">
+                <span class="packet" style="--i:0"></span>
+                <span class="packet" style="--i:1"></span>
+                <span class="packet" style="--i:2"></span>
+              </div>
+              <div class="orch-agents">
+                <div class="orch-node agent-card" data-agent="code"><span class="orch-role">Агент</span><strong>Код BSL</strong></div>
+                <div class="orch-node agent-card" data-agent="data"><span class="orch-role">Агент</span><strong>Сбор данных</strong></div>
+                <div class="orch-node agent-card" data-agent="test"><span class="orch-role">Агент</span><strong>Тесты</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="orch-stage" data-stage="2" hidden>
+            <p class="orch-caption">Агент «Код» читает модуль и пишет BSL</p>
+            <div class="orch-code-wrap">
+              <div class="orch-code-meta">
+                <span>ОбщийМодуль.РаботаСЗаказами</span>
+                <span class="ok">MCP · структура конф. подключена</span>
+              </div>
+              <pre class="orch-code"><code id="orch-code"></code><span class="caret"></span></pre>
+            </div>
+          </div>
+
+          <div class="orch-stage" data-stage="3" hidden>
+            <p class="orch-caption">Передача результатов от агента к агенту</p>
+            <div class="handoff">
+              <div class="orch-node agent-card is-active" id="hand-from">
+                <span class="orch-role">От кого</span>
+                <strong id="hand-from-name">Код BSL</strong>
+                <p id="hand-from-msg">Модуль подготовлен</p>
+              </div>
+              <div class="handoff-arrow">
+                <span class="packet big"></span>
+              </div>
+              <div class="orch-node agent-card is-active" id="hand-to">
+                <span class="orch-role">Кому</span>
+                <strong id="hand-to-name">Тесты</strong>
+                <p id="hand-to-msg">Проверка сценариев</p>
+              </div>
+            </div>
+            <div class="handoff-log" id="hand-log"></div>
+          </div>
+
+          <div class="orch-stage" data-stage="4" hidden>
+            <p class="orch-caption">Итог: готовый результат под контролем специалиста</p>
+            <div class="orch-result">
+              <div class="orch-node result-card is-active">
+                <span class="orch-role">Результат</span>
+                <strong>Модуль к внедрению</strong>
+                <ul>
+                  <li>BSL согласован со стандартами 1С</li>
+                  <li>Контекст конфигурации учтён через MCP</li>
+                  <li>Тесты и сбор данных завершены</li>
+                </ul>
+              </div>
+              <div class="orch-side">
+                <div class="orch-chip ok">оркестрация закрыта</div>
+                <div class="orch-chip ok">ревью архитектора</div>
+                <div class="orch-chip ok">готово к передаче заказчику</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -84,9 +145,9 @@
     <section class="section method" id="method" aria-labelledby="method-title">
       <div class="section-head">
         <p class="eyebrow">Метод</p>
-        <h2 id="method-title">Сжатая команда в одном контуре: ИИ и экспертиза 1С</h2>
+        <h2 id="method-title">Оркестрация агентов, MCP и экспертиза 1С</h2>
         <p class="section-lead">
-          Речь не о более быстрой печати кода. Мы выстроили процесс, в котором параллельные ИИ-агенты, MCP и стандарты 1С берут на себя рутину, а специалист остаётся архитектором и отвечает за качество.
+          Мы работаем не через одиночный чат с моделью, а через управляемый контур: оркестратор распределяет задачи, специализированные агенты выполняют их параллельно, а уникальные MCP-серверы дают моделям точный контекст вашей конфигурации.
         </p>
       </div>
 
@@ -94,22 +155,46 @@
         <li>
           <span class="step-num">01</span>
           <div>
-            <h3>Анализ конфигурации за минуты</h3>
-            <p>Конфигурации и расширения разбираются целиком: узкие места, унаследованный код, риски внедрения — до того, как они проявятся у пользователей.</p>
+            <h3>Оркестрация нейронных сетей</h3>
+            <p>
+              Управляющая модель принимает постановку задачи, декомпозирует её и назначает работу агентам: архитектура, код, сбор данных, ревью, тестирование. Каждый агент получает свой контур ответственности, а оркестратор контролирует порядок передачи результатов и сходимость к целевому решению.
+            </p>
           </div>
         </li>
         <li>
           <span class="step-num">02</span>
           <div>
-            <h3>Разработка, рефакторинг и проверка в одном цикле</h3>
-            <p>Несколько ИИ параллельно прорабатывают разные аспекты задачи. Поверх них — набор правил по стандартам 1С и собственные MCP-серверы.</p>
+            <h3>Агент «Код» и работа с BSL</h3>
+            <p>
+              Агент разработки формирует и сопровождает модули на встроенном языке 1С: читает существующий код, предлагает изменения, соблюдает структуру конфигурации и стандарты оформления. Человек остаётся на уровне архитектурных решений и финального контроля качества.
+            </p>
           </div>
         </li>
         <li>
           <span class="step-num">03</span>
           <div>
-            <h3>На выходе — решение, готовое к внедрению</h3>
-            <p>Не промежуточный черновик, а модуль, отчёт, обмен или оптимизация УТ / ERP / КА, пригодные к промышленной эксплуатации.</p>
+            <h3>Уникальные MCP-серверы под вашу конфигурацию</h3>
+            <p>
+              Собственные MCP-серверы подключают к агентам знание метаданных, связей объектов, расширений и принятых правил проекта. Модели опираются не на общие предположения, а на фактическую структуру вашей базы (.cf / .cfe) в безопасном контуре демо-среды.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">04</span>
+          <div>
+            <h3>Сбор дополнительных данных</h3>
+            <p>
+              Отдельный агент собирает недостающий контекст: связанные объекты, типовые сценарии, историю доработок, ограничения обмена и производительности. Это снижает число итераций «уточнить у заказчика» и повышает точность первой версии решения.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">05</span>
+          <div>
+            <h3>Тестирование и передача результата</h3>
+            <p>
+              Агент тестирования проверяет ключевые сценарии, граничные случаи и регрессии. После прохождения проверок результат возвращается оркестратору и специалисту 1С для ревью — на выход передаётся решение, готовое к внедрению, а не промежуточный черновик.
+            </p>
           </div>
         </li>
       </ol>
@@ -167,13 +252,13 @@
         <details open>
           <summary>«ИИ допускает ошибки»</summary>
           <p>
-            При передаче задачи в общий чат без контекста качество действительно невысокое. В нашем процессе иначе: правила разработки 1С, специализированные инструменты и несколько ИИ на одну задачу. На выходе — проверенный результат под контролем специалиста, а не сырой ответ модели.
+            При передаче задачи в общий чат без контекста качество действительно невысокое. В нашем процессе иначе: оркестрация агентов, правила разработки 1С, MCP с знанием конфигурации и отдельный контур тестирования. На выходе — проверенный результат под контролем специалиста.
           </p>
         </details>
         <details>
           <summary>«Риск утечки данных»</summary>
           <p>
-            Мы не работаем с продуктивными данными заказчика. Для ИИ достаточно конфигурации (.cf) и расширений (.cfe). Вся разработка ведётся на демо-базах — это условие конфиденциальности.
+            Мы не работаем с продуктивными данными заказчика. Для ИИ и MCP достаточно конфигурации (.cf) и расширений (.cfe). Вся разработка ведётся на демо-базах — это условие конфиденциальности.
           </p>
         </details>
         <details>
@@ -190,7 +275,7 @@
         <p class="eyebrow">Контакт</p>
         <h2 id="contact-title">Без обещаний «чуда» — с опорой на результат</h2>
         <p class="section-lead">
-          Опишите задачу: подскажем, где ИИ даст существенный выигрыш по срокам и стоимости, а где достаточно опытного архитектора 1С.
+          Опишите задачу: подскажем, где оркестрация агентов и MCP дадут существенный выигрыш по срокам и стоимости, а где достаточно опытного архитектора 1С.
         </p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="tel:+79991234567">Позвоните нам</a>
