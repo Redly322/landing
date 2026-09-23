@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ФОРС — программирование 1С с ИИ</title>
+  <title>1С с ИИ — разработка быстрее штата</title>
   <meta name="description" content="Команда 1С с ИИ, собственными MCP-серверами и стандартами разработки. Скорость целой команды — без раздутого штата." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
 
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="ФОРС — наверх">
+    <a class="brand" href="#top" aria-label="Наверх">
       <span class="brand-mark" aria-hidden="true"></span>
-      <span class="brand-name">ФОРС</span>
+      <span class="brand-line">1С × ИИ</span>
     </a>
     <nav class="nav">
       <a href="#method">Метод</a>
@@ -27,10 +27,9 @@
   </header>
 
   <main id="top">
-    <section class="hero" aria-labelledby="hero-brand">
+    <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="hero-brand" id="hero-brand">ФОРС</p>
-        <h1 class="hero-title">1С с ИИ — ударная сила, а не штат «на всякий случай»</h1>
+        <h1 class="hero-title" id="hero-title">1С с ИИ — ударная сила, а не штат «на всякий случай»</h1>
         <p class="hero-lead">
           Пока классическая команда неделями ковыряет типовые доработки, мы закрываем те же задачи за часы: ИИ, собственные MCP-серверы и жёсткие стандарты 1С.
         </p>
@@ -41,59 +40,41 @@
       </div>
 
       <div class="hero-visual" aria-hidden="true">
-        <svg class="hero-diagram" viewBox="0 0 960 720" role="img">
-          <defs>
-            <linearGradient id="plane" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#0f2744" stop-opacity="0.92" />
-              <stop offset="100%" stop-color="#163a5f" stop-opacity="0.75" />
-            </linearGradient>
-            <linearGradient id="signal" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#c8f531" stop-opacity="0" />
-              <stop offset="45%" stop-color="#c8f531" />
-              <stop offset="100%" stop-color="#c8f531" stop-opacity="0" />
-            </linearGradient>
-          </defs>
-
-          <rect class="plane" x="48" y="72" width="864" height="560" rx="8" fill="url(#plane)" />
-          <g class="grid-lines" stroke="#9eb6d1" stroke-opacity="0.18" stroke-width="1">
-            <path d="M48 180 H912 M48 288 H912 M48 396 H912 M48 504 H912" />
-            <path d="M216 72 V632 M384 72 V632 M552 72 V632 M720 72 V632" />
-          </g>
-
-          <g class="node node-cf" transform="translate(110 210)">
-            <rect width="200" height="120" rx="4" fill="#f4f7fb" />
-            <text x="24" y="42" class="node-label">Конфигурация</text>
-            <text x="24" y="74" class="node-meta">.cf / .cfe</text>
-            <text x="24" y="98" class="node-meta">демо-база</text>
-          </g>
-
-          <g class="node node-ai" transform="translate(380 150)">
-            <rect width="200" height="240" rx="4" fill="#f4f7fb" />
-            <text x="24" y="42" class="node-label">ИИ-контур</text>
-            <text x="24" y="78" class="node-meta">агент · архитектура</text>
-            <text x="24" y="108" class="node-meta">агент · код</text>
-            <text x="24" y="138" class="node-meta">агент · ревью</text>
-            <text x="24" y="168" class="node-meta">агент · тесты</text>
-            <text x="24" y="210" class="node-meta accent">правила 1С × N</text>
-          </g>
-
-          <g class="node node-mcp" transform="translate(650 210)">
-            <rect width="200" height="120" rx="4" fill="#f4f7fb" />
-            <text x="24" y="42" class="node-label">MCP-серверы</text>
-            <text x="24" y="74" class="node-meta">свои инструменты</text>
-            <text x="24" y="98" class="node-meta">стандарты 1С</text>
-          </g>
-
-          <g class="node node-out" transform="translate(380 450)">
-            <rect width="200" height="100" rx="4" fill="#c8f531" />
-            <text x="24" y="42" class="node-label dark">Готовый модуль</text>
-            <text x="24" y="74" class="node-meta dark">к внедрению сегодня</text>
-          </g>
-
-          <path class="flow flow-a" d="M310 270 H380" stroke="url(#signal)" stroke-width="3" fill="none" />
-          <path class="flow flow-b" d="M580 270 H650" stroke="url(#signal)" stroke-width="3" fill="none" />
-          <path class="flow flow-c" d="M480 390 V450" stroke="url(#signal)" stroke-width="3" fill="none" />
-        </svg>
+        <div class="ide">
+          <div class="ide-chrome">
+            <span class="ide-dot"></span>
+            <span class="ide-dot"></span>
+            <span class="ide-dot"></span>
+            <span class="ide-path">Конфигурация / ОбщийМодуль.РаботаСЗаказами</span>
+          </div>
+          <div class="ide-body">
+            <aside class="ide-tree">
+              <p class="ide-tree-label">Метаданные</p>
+              <ul>
+                <li class="dim">Справочники</li>
+                <li class="active">Документы</li>
+                <li class="child active">ЗаказКлиента</li>
+                <li class="child">Реализация</li>
+                <li class="dim">РегистрыСведений</li>
+                <li class="dim">ОбщиеМодули</li>
+                <li class="child pulse">РаботаСЗаказами</li>
+              </ul>
+            </aside>
+            <div class="ide-editor">
+              <div class="ide-status">
+                <span>агент · код</span>
+                <span class="ide-status-ok">стандарты 1С ✓</span>
+              </div>
+              <pre class="ide-code"><code id="typed-code"></code><span class="caret"></span></pre>
+            </div>
+          </div>
+          <div class="ide-agents">
+            <span class="agent on">архитектура</span>
+            <span class="agent on">код</span>
+            <span class="agent on">ревью</span>
+            <span class="agent">тесты</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -209,7 +190,7 @@
           Расскажите задачу — ответим, где ИИ даст кратный выигрыш, а где нужен только опытный 1С-архитектор.
         </p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="mailto:hello@fors1c.ru">Написать на hello@fors1c.ru</a>
+          <a class="btn btn-primary" href="mailto:hello@example.com">Написать</a>
           <a class="btn btn-ghost" href="https://t.me/" rel="noopener noreferrer" target="_blank">Telegram</a>
         </div>
       </div>
@@ -217,8 +198,8 @@
   </main>
 
   <footer class="site-footer">
-    <span class="brand-name">ФОРС</span>
-    <span>1С × ИИ · MCP · стандарты разработки</span>
+    <span>1С × ИИ</span>
+    <span>MCP · стандарты разработки · демо-базы</span>
   </footer>
 
   <script src="script.js"></script>
