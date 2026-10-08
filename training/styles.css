@@ -509,6 +509,20 @@ a {
   border-top: 1px solid var(--line);
 }
 
+.contact-phone {
+  margin: 0 0 1.2rem;
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  user-select: all;
+}
+
+.contact-phone a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
 .contact-panel h2 {
   margin: 0 0 0.85rem;
   font-family: var(--font-display);
